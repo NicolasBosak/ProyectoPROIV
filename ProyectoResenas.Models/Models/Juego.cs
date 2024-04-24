@@ -25,7 +25,7 @@ namespace Proyecto_Resenas_CQS.Models
         [Display(Name = "Front Image")]
 
         [NotMapped]
-        public IFormFile FrontImage { get; set; }
+        //public IFormFile FrontImage { get; set; }
         public List<Destacado>? Destacados { get; set; }
     }
 }

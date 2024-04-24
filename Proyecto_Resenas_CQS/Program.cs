@@ -1,8 +1,11 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_Resenas_CQS.Data;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<Proyecto_Resenas_CQSContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Proyecto_Resenas_CQSContext") ?? throw new InvalidOperationException("Connection string 'Proyecto_Resenas_CQSContext' not found.")));
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("ConexionSQL") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
